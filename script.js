@@ -102,8 +102,8 @@ actionBtn.addEventListener("click", () => {
       status.textContent = "In Process";
     }
   }
-  closestElevator.currentFloor = selectedFloor;
   closestElevator.isActive = true;
+  closestElevator.currentFloor = selectedFloor;
 
   let transformVal = 70 * selectedFloor - 70;
   let divList = document.querySelectorAll(".elevator");
@@ -115,6 +115,7 @@ actionBtn.addEventListener("click", () => {
   status.style.justifyContent = "center";
   status.style.alignItems = "center";
   status.style.fontSize = "20px";
+
   elevatorImg.addEventListener("transitionend", function handleTransitionEnd() {
     status.textContent = ` Elevator N ${closestElevator.id}  is in ${selectedFloor} Floor`;
     closestElevator.isActive = false;
