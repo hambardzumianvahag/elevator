@@ -5,6 +5,7 @@ const elevatorInput = document.querySelector("#elevator-count");
 const divList = document.querySelector("#list");
 const listItems = document.querySelector("#list-items");
 const errorText = document.querySelector("#error-text");
+const status = document.querySelector("#status");
 
 const actionDiv = document.querySelector("#action");
 const select = document.querySelector("#select");
@@ -15,16 +16,16 @@ let elevatorObj = [];
 createBtn.addEventListener("click", () => {
   if (!floorInput.value || !elevatorInput.value) {
     listItems.innerHTML = "";
-    actionDiv.style.display= "none";
+    actionDiv.style.display = "none";
     errorText.textContent = "Please fill in both fields.";
     divList.appendChild(errorText);
   } else if (floorInput.value > 100 || floorInput.value < 2) {
     listItems.innerHTML = "";
-    actionDiv.style.display= "none";
+    actionDiv.style.display = "none";
     errorText.textContent = "Please enter a floor between 2 and 100.";
   } else if (elevatorInput.value > 6 || elevatorInput.value < 1) {
     listItems.innerHTML = "";
-    actionDiv.style.display= "none";
+    actionDiv.style.display = "none";
     errorText.textContent = "Please enter a elevator number between 1 and 6.";
   } else {
     errorText.textContent = "";
@@ -53,12 +54,14 @@ createBtn.addEventListener("click", () => {
         option.value = i + 1;
         option.textContent = i + 1;
         select.appendChild(option);
+      }
+      for (let i = 0; i < elevatorInput.value; i++) {
         elevatorObj.push({ id: i + 1, currentFloor: 1, isActive: false });
       }
     } else {
       select.innerHTML = "";
       elevatorObj = [];
-      for (let i = 0; i < floorInput.value; i++) {
+      for (let i = 0; i < elevatorInput.value; i++) {
         const option = document.createElement("option");
         option.value = i + 1;
         option.textContent = i + 1;
@@ -89,9 +92,14 @@ actionBtn.addEventListener("click", () => {
       minDistance = distance;
       closestElevator = elevator;
     }
-    if (elevator.currentFloor === selectedFloor) {
+  }
+  for (let i = 0; i < elevatorObj.length; i++) {
+    if (elevatorObj[i].currentFloor === selectedFloor) {
       alert("elevator is here!");
       return;
+    }
+    if (!elevatorObj[i].isActive) {
+      status.textContent = "In Process";
     }
   }
   closestElevator.currentFloor = selectedFloor;
@@ -103,8 +111,12 @@ actionBtn.addEventListener("click", () => {
   let elevatorImg = closestElevatorDiv.childNodes[0];
   elevatorImg.style.transition = "all 3s ease-in";
   elevatorImg.style.transform = `translateY(-${transformVal}px)`;
-
+  status.style.display = "flex";
+  status.style.justifyContent = "center";
+  status.style.alignItems = "center";
+  status.style.fontSize = "20px";
   elevatorImg.addEventListener("transitionend", function handleTransitionEnd() {
+    status.textContent = ` Elevator N ${closestElevator.id}  is in ${selectedFloor} Floor`;
     closestElevator.isActive = false;
     elevatorImg.removeEventListener("transitionend", handleTransitionEnd);
   });
