@@ -17,7 +17,7 @@ A simple, responsive website built with HTML, CSS and Javacript.
 
 Created a web application called elevator, which is a small project like elevators in a building
 
-[View the project on GitHub] https://hambardzumianvahag.github.io/personal-portfolio/
+[View the project on GitHub] https://hambardzumianvahag.github.io/elevator/
 
 ## Technologies Used
 
