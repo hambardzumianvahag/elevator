@@ -35,11 +35,9 @@ To run this project locally, follow these steps:
 1. **Clone the repository:**
 
  ```bash
-   git clone https://github.com/hambardzumianvahag/personal-portfolio.git
+   git clone https://github.com/hambardzumianvahag/elevator.git
 
-   cd personal-portfolio
-
-   install tailwind dependencies if it's not installed
+   cd elevator
 
    Open index.html in your browser or use a local server like Live Server for development.
 
