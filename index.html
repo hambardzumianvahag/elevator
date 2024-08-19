@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Elevator</title>
+</head>
+
+<body>
+    <div id="root">
+        <input type="number" id="floor-count" placeholder="Enter Floor's count (max - 100)" min="2" max="100">
+        <input type="number" id="elevator-count" placeholder="Enter Elevator's count (max - 6)" min="1" max="6">
+        <button id="create-btn">Create</button>
+        <div id="list">
+            <p id="error-text"></p>
+            <div id="list-items"></div>
+        </div>
+        <div id="action">
+            <label>Choose a floor</label>
+            <select id="select"></select>
+            <button id="action-btn">Go</button>
+        </div>
+    </div>
+</body>
+<script src="./script.js"></script>
+
+</html>

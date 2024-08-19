@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#root input {
+    width: 310px;
+    height: 30px;
+    font-size: 20px;
+    padding: 5px;
+}
+
+#root button {
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+    background-color: rgb(143, 154, 214);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.eachDiv {
+    width: 70px;
+    height: 70px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#error-text {
+    font-size: 20px;
+    color: red;
+}
+
+#list-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#action {
+    display: none;
+    font-size: 20px;
+}
+
+#select {
+    cursor: pointer;
+    font-size: 20px;
+    width: 50px;
+    height: 30px;
+}
