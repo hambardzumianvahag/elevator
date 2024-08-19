@@ -61,6 +61,7 @@ createBtn.addEventListener("click", () => {
     } else {
       select.innerHTML = "";
       elevatorObj = [];
+      status.style.display = "none";
       for (let i = 0; i < elevatorInput.value; i++) {
         const option = document.createElement("option");
         option.value = i + 1;
